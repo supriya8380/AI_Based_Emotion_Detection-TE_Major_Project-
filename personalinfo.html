@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Persona Quiz</title>
+    <link rel="stylesheet" href="personalinfo.css">
+</head>
+<body>
+
+<div class="login-container">
+    <h2>User Personal Details</h2>
+
+    <form id="personaForm">
+
+        <label>1. What do you like to do in free time?</label><br>
+        <input type="text" id="freeTime"><br><br>
+
+        <label>2. What is your hobby?</label><br>
+        <input type="text" id="hobby"><br><br>
+
+        <label>3. If you are happy, what do you usually do?</label><br>
+        <input type="text" id="happyAction"><br><br>
+
+        <label>4. If you are sad, what do you do?</label><br>
+        <input type="text" id="sadAction"><br><br>
+
+        <label>5. Are you an introvert or extrovert?</label><br>
+        <select id="personality">
+            <option value="">Select</option>
+            <option value="Introvert">Introvert</option>
+            <option value="Extrovert">Extrovert</option>
+        </select><br><br>
+
+        <button type="button" onclick="submitPersona()">Submit</button>
+
+    </form>
+
+    <p class="error" id="message"></p>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
