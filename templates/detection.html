@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emotion Detection - Methods</title>
+<style>
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #E6E6FA, #D8BFD8); text-align: center; }
+    .navbar { position: sticky; top: 0; display: flex; justify-content: center; gap: 30px; padding: 15px; background: #9370DB; z-index: 1000; }
+    .navbar a { color: white; text-decoration: none; font-weight: bold; padding: 5px; position: relative; transition: 0.3s; }
+    .navbar a:hover, .navbar a.active { color: #FFD700; }
+    h1 { margin-top: 40px; color: #4B0082; font-size: 2.5em; }
+    .container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 50px; padding: 20px; }
+    .card { background: white; width: 200px; padding: 30px 20px; border-radius: 18px; box-shadow: 0 8px 20px rgba(147,112,219,0.3); cursor: pointer; position: relative; transition: 0.4s; }
+    .card:hover { transform: translateY(-15px) scale(1.05); box-shadow: 0 20px 40px rgba(138,43,226,0.4); }
+    .icon { font-size: 65px; margin-bottom: 15px; }
+    .btn { margin-top: 15px; padding: 12px; background: linear-gradient(45deg, #9370DB, #8A2BE2); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
+    .btn:hover { transform: scale(1.1); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="{{ url_for('home') }}" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+    <a href="{{ url_for('home') }}" class="nav-link {% if request.path == '/' %}active{% endif %}">Platform</a>
+    <a href="{{ url_for('detection') }}" class="nav-link {% if request.path == '/detection' %}active{% endif %}">Emotion Detection</a>
+    <a href="{{ url_for('resources') }}" class="nav-link {% if request.path == '/resources' %}active{% endif %}">Resources</a>
+</nav>
+
+<h1>Select Detection Method</h1>
+
+<div class="container">
+    <div class="card">
+        <div class="icon">🖼️</div>
+        <h3>Image Detection</h3>
+        <p>Upload image and detect emotions instantly.</p>
+        <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" required>
+            <button type="submit" class="btn">Upload Image</button>
+        </form>
+    </div>
+
+    <div class="card" onclick="alert('🚧 Text emotion detection coming soon!')">
+        <div class="icon">📝</div>
+        <h3>Text Detection</h3>
+        <p>Analyze emotions from text using NLP.</p>
+        <button class="btn">Enter Text</button>
+    </div>
+
+    <div class="card" onclick="alert('📷 Camera detection coming soon!')">
+        <div class="icon">📷</div>
+        <h3>Camera Detection</h3>
+        <p>Real-time emotion detection via webcam.</p>
+        <button class="btn">Start Camera</button>
+    </div>
+
+    <div class="card" onclick="alert('🎤 Audio detection coming soon!')">
+        <div class="icon">🎤</div>
+        <h3>Audio Detection</h3>
+        <p>Detect emotions from voice recordings.</p>
+        <button class="btn">Upload Audio</button>
+    </div>
+</div>
+
+</body>
+</html>
