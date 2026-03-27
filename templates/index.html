@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Emotion Detection</title>
+    <style>
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #E6E6FA, #D8BFD8); }
+        .navbar { position: sticky; top: 0; display: flex; justify-content: center; gap: 30px; padding: 15px; background: #9370DB; z-index: 1000; }
+        .navbar a { color: white; text-decoration: none; font-weight: bold; padding: 5px; position: relative; transition: 0.3s; }
+        .navbar a:hover, .navbar a.active { color: #FFD700; }
+        .hero { padding: 50px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 30px; }
+        .hero-text { flex: 1; max-width: 500px; }
+        .hero-text h1 { color: #4B0082; font-size: 36px; }
+        .hero-text p { font-size: 18px; color: #333; line-height: 1.6; text-align: justify; }
+        .btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #8A2BE2; color: white; border-radius: 8px; text-decoration: none; transition: 0.3s; }
+        .btn:hover { background: #6A0DAD; transform: scale(1.05); }
+        .hero-image img { width: 500px; border-radius: 15px; }
+        .platform-section { padding: 80px 20px; text-align: center; }
+        .platform-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        .card { background: white; padding: 20px; width: 250px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        p { text-align: justify; }
+        .footer { background: #4B0082; color: white; margin-top: 50px; }
+        .footer-container { display: flex; justify-content: space-around; flex-wrap: wrap; padding: 30px; text-align: left; }
+        .footer-section { max-width: 250px; margin: 10px; }
+        .footer-section h3 { margin-bottom: 10px; color: #FFD700; }
+        .footer-section a { color: white; text-decoration: none; transition: 0.3s; }
+        .footer-section a:hover { color: #FFD700; }
+        .footer-bottom { text-align: center; padding: 10px; background: #3A006F; }
+    </style>
+</head>
+<body>
 
+<!-- Navbar -->
+<nav class="navbar">
+    <a href="{{ url_for('home') }}" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+    <a href="#platform" class="nav-link">Platform</a>
+    <a href="{{ url_for('detection') }}" class="nav-link {% if request.path == '/detection' %}active{% endif %}">Emotion Detection</a>
+    <a href="{{ url_for('resources') }}" class="nav-link {% if request.path == '/resources' %}active{% endif %}">Resources</a>
+</nav>
+
+<!-- Hero Section -->
+<main>
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>AI Based Emotion Detection System</h1>
+            <p>
+                This AI-based Emotion Detection System analyzes human facial expressions using AI and Computer Vision.
+                It can classify emotions like Happy, Sad, Angry, Fear, Surprise, Disgust, and Neutral. Applications include
+                mental health analysis, human-computer interaction, and customer experience enhancement.
+            </p>
+            <a href="{{ url_for('detection') }}" class="btn">🚀 Start Emotion Detection</a>
+        </div>
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='img-1.jpeg') }}" alt="AI Emotion Detection">
+        </div>
+    </section>
+
+    <!-- Platform Section -->
+    <section id="platform" class="platform-section">
+        <h1>Our Platform</h1>
+        <div class="platform-container">
+            <div class="card"><h3>📸 Face Detection</h3><p>Detects human faces using OpenCV algorithms in real-time.</p></div>
+            <div class="card"><h3>🧠 Deep Learning</h3><p>Uses CNN models to analyze facial expressions.</p></div>
+            <div class="card"><h3>😊 Emotion Prediction</h3><p>Predicts emotions like Happy, Sad, Angry, Surprise, Fear, Disgust, Neutral.</p></div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>AI Emotion Detection</h3>
+            <p>Smart system that detects emotions using AI, Computer Vision, and Deep Learning.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="{{ url_for('home') }}">Home</a><br>
+            <a href="#platform">Platform</a><br>
+            <a href="{{ url_for('resources') }}">Resources</a><br>
+            <a href="{{ url_for('detection') }}">Detection</a>
+        </div>
+        <div class="footer-section">
+            <h3>Technologies</h3>
+            <p>Python</p><p>OpenCV</p><p>TensorFlow</p><p>Flask</p>
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Email: supriyayadavpune2005@gmail.com</p>
+            <p>Location: Pune, India</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 AI Emotion Detection Project | All Rights Reserved</p>
+    </div>
+</footer>
+
+</body>
+</html>
